@@ -52,9 +52,9 @@ def parse_star_parameters(line, star):
     star.color = line.split()[2]
     star.m = float(line.split()[3])
     star.x = float(line.split()[4])
-    star.y = float(line.split()[4])
-    star.Vx = float(line.split()[3])
-    star.Vy = float(line.split()[3])
+    star.y = float(line.split()[5])
+    star.Vx = float(line.split()[6])
+    star.Vy = float(line.split()[7])
 
       # FIXME: not done yet
 
@@ -78,9 +78,9 @@ def parse_planet_parameters(line, planet):
     planet.color = line.split()[2]
     planet.m = float(line.split()[3])
     planet.x = float(line.split()[4])
-    planet.y = float(line.split()[4])
-    planet.Vx = float(line.split()[3])
-    planet.Vy = float(line.split()[3])
+    planet.y = float(line.split()[5])
+    planet.Vx = float(line.split()[6])
+    planet.Vy = float(line.split()[7])
       # FIXME: not done yet...
 
 
@@ -97,7 +97,7 @@ def write_space_objects_data_to_file(output_filename, space_objects):
     """
     with open(output_filename, 'w') as out_file:
         for obj in space_objects:
-            print(obj.type, obj.R, obj.color, obj.m, obj.x, obj.y, obj.Vx, obj.Vy, file=out_file)
+            out_file.write(str(obj.type) +" " + str(obj.R)+" " +str(obj.color)+" " +str(obj.m) +" " +str(obj.x)+" " +str(obj.y)+" " +str(obj.Vx)+" " +str(obj.Vy)+"\n")
             # FIXME: should store real values
 
 
