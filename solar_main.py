@@ -6,7 +6,6 @@ from tkinter.filedialog import *
 from solar_vis import *
 from solar_model import *
 from solar_input import *
-printtt
 perform_execution = False
 """Флаг цикличности выполнения расчёта"""
 
@@ -34,13 +33,13 @@ def execution():
     """
     global physical_time
     global displayed_time
-    recalculate_space_objects_positions(space_objects, time_step.get())
+    recalculate_space_objects_positions(space_objects, int(time_step.get()))
     for body in space_objects:
         update_object_position(space, body)
     physical_time += time_step.get()
     displayed_time.set("%.1f" % physical_time + " seconds gone")
 
-    if perform_execution:
+    if perform_execution==True:
         space.after(101 - int(time_speed.get()), execution)
 
 
@@ -52,7 +51,6 @@ def start_execution():
     perform_execution = True
     start_button['text'] = "Pause"
     start_button['command'] = stop_execution
-
     execution()
     print('Started execution...')
 
@@ -117,7 +115,7 @@ def main():
 
     root = tkinter.Tk()
     # космическое пространство отображается на холсте типа Canvas
-    space = tkinter.Canvas(root, width=window_width, height=window_height, bg="black")
+    space = tkinter.Canvas(root, width=window_width, height=window_height-40, bg="black")
     space.pack(side=tkinter.TOP)
     # нижняя панель с кнопками
     frame = tkinter.Frame(root)

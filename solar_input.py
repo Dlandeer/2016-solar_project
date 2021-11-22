@@ -24,7 +24,7 @@ def read_space_objects_data_from_file(input_filename):
                 parse_star_parameters(line, star)
                 objects.append(star)
             elif object_type == "planet":
-                planet = planet()
+                planet = Planet()
                 parse_planet_parameters(line, planet)
                 objects.append(planet)
 
@@ -48,13 +48,13 @@ def parse_star_parameters(line, star):
     **line** — строка с описание звезды.
     **star** — объект звезды.
     """
-    body.R = int(line.split()[1])
-    body.color = line.split()[2]
-    body.m = int(line.split()[3])
-    body.x = int(line.split()[4])
-    body.y = int(line.split()[4])
-    body.Vx = int(line.split()[3])
-    body.Vy = int(line.split()[3])
+    star.R = int(line.split()[1])
+    star.color = line.split()[2]
+    star.m = float(line.split()[3])
+    star.x = float(line.split()[4])
+    star.y = float(line.split()[4])
+    star.Vx = float(line.split()[3])
+    star.Vy = float(line.split()[3])
 
       # FIXME: not done yet
 
@@ -74,13 +74,13 @@ def parse_planet_parameters(line, planet):
     **line** — строка с описание планеты.
     **planet** — объект планеты.
     """
-    body.R = int(line.split()[1])
-    body.color = line.split()[2]
-    body.m = int(line.split()[3])
-    body.x = int(line.split()[4])
-    body.y = int(line.split()[4])
-    body.Vx = int(line.split()[3])
-    body.Vy = int(line.split()[3])
+    planet.R = int(line.split()[1])
+    planet.color = line.split()[2]
+    planet.m = float(line.split()[3])
+    planet.x = float(line.split()[4])
+    planet.y = float(line.split()[4])
+    planet.Vx = float(line.split()[3])
+    planet.Vy = float(line.split()[3])
       # FIXME: not done yet...
 
 
